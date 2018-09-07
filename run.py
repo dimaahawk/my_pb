@@ -90,7 +90,7 @@ def list():
     )
 
 
-@app.route('/del/<id>', methods=['GET'])
+@app.route('/del/<id>/', methods=['GET'])
 def delete(id):
     if not os.path.exists('static/pastes/{}'.format(id)):
         abort(418)
