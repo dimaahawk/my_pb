@@ -1,0 +1,6 @@
+Usage:
+     To get back a paste use the /get/ route.
+
+     http://example.com/get/ID
+
+     The ID is the returned string after you submitted your paste. Don't lose it!
