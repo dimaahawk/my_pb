@@ -12,8 +12,12 @@ def standard_response(response_object, request_object):
     resp.headers['X-HELLO'] = 'WORLD!'
 
     if 'uid' not in request_object.cookies:
+        ts = datetime.datetime.today().strftime('%s')
         new_cookie = str(uuid4())
         resp.set_cookie('uid', value=new_cookie)
+        with open('db.log', 'a') as f:
+            line = '{0}-{1}\n'.format(ts, new_cookie)
+            f.write(line)
 
     else:
         ts = datetime.datetime.today().strftime('%s')
@@ -71,7 +75,8 @@ def get(lu):
 @app.route('/help/', methods=['GET'])
 def help():
     return Response(
-        render_template('help.txt'),
+        '',
+        # render_template('help.txt'),
         mimetype='text/plain'
     )
 

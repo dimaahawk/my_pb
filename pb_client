@@ -3,6 +3,16 @@
 import sys
 import requests
 
+'''
+
+Symlink into /usr/local/bin
+
+Usage:
+    cat file.txt | pb_client
+    echo 'test' | pb_client
+
+'''
+
 pl = {'pb': sys.stdin.read()}
 
 resp = requests.post('https://pb.billben.net/new/', data=pl)
